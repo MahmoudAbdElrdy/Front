@@ -506,21 +506,21 @@ export class DiscountService extends BaseService {
   }
 
   /**
-   * Path part for operation apiDiscountUpdatePut
+   * Path part for operation apiDiscountUpdatePost
    */
-  static readonly ApiDiscountUpdatePutPath = '/api/Discount/Update';
+  static readonly ApiDiscountUpdatePostPath = '/api/Discount/Update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiDiscountUpdatePut$Plain()` instead.
+   * To access only the response body, use `apiDiscountUpdatePost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiDiscountUpdatePut$Plain$Response(params?: {
+  apiDiscountUpdatePost$Plain$Response(params?: {
       body?: DiscountDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountUpdatePostPath, 'post');
     if (params) {
 
 
@@ -539,30 +539,30 @@ export class DiscountService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiDiscountUpdatePut$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiDiscountUpdatePost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiDiscountUpdatePut$Plain(params?: {
+  apiDiscountUpdatePost$Plain(params?: {
       body?: DiscountDto
   }): Observable<IResponseDto> {
 
-    return this.apiDiscountUpdatePut$Plain$Response(params).pipe(
+    return this.apiDiscountUpdatePost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiDiscountUpdatePut$Json()` instead.
+   * To access only the response body, use `apiDiscountUpdatePost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiDiscountUpdatePut$Json$Response(params?: {
+  apiDiscountUpdatePost$Json$Response(params?: {
       body?: DiscountDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountUpdatePostPath, 'post');
     if (params) {
 
 
@@ -581,36 +581,36 @@ export class DiscountService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiDiscountUpdatePut$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiDiscountUpdatePost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiDiscountUpdatePut$Json(params?: {
+  apiDiscountUpdatePost$Json(params?: {
       body?: DiscountDto
   }): Observable<IResponseDto> {
 
-    return this.apiDiscountUpdatePut$Json$Response(params).pipe(
+    return this.apiDiscountUpdatePost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
-   * Path part for operation apiDiscountDeleteDelete
+   * Path part for operation apiDiscountDeleteGet
    */
-  static readonly ApiDiscountDeleteDeletePath = '/api/Discount/Delete';
+  static readonly ApiDiscountDeleteGetPath = '/api/Discount/Delete';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiDiscountDeleteDelete$Plain()` instead.
+   * To access only the response body, use `apiDiscountDeleteGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiDiscountDeleteDelete$Plain$Response(params?: {
+  apiDiscountDeleteGet$Plain$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -629,32 +629,32 @@ export class DiscountService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiDiscountDeleteDelete$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiDiscountDeleteGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiDiscountDeleteDelete$Plain(params?: {
+  apiDiscountDeleteGet$Plain(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiDiscountDeleteDelete$Plain$Response(params).pipe(
+    return this.apiDiscountDeleteGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiDiscountDeleteDelete$Json()` instead.
+   * To access only the response body, use `apiDiscountDeleteGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiDiscountDeleteDelete$Json$Response(params?: {
+  apiDiscountDeleteGet$Json$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, DiscountService.ApiDiscountDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -673,16 +673,16 @@ export class DiscountService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiDiscountDeleteDelete$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiDiscountDeleteGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiDiscountDeleteDelete$Json(params?: {
+  apiDiscountDeleteGet$Json(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiDiscountDeleteDelete$Json$Response(params).pipe(
+    return this.apiDiscountDeleteGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }

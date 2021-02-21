@@ -155,10 +155,10 @@ UpdateDb() {
   
   let object={body: this.rForm.value};
  
-    this.ProductService.apiProductUpdatePut$Json$Response(object).subscribe(
+    this.ProductService.apiProductUpdatePost$Json(object).subscribe(
      
       next => {
-        if(next.body.Code ==200){
+        if(next.Code ==200){
           this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:' تم العملية بنجاح'});
        
           this.GatAll();
@@ -200,11 +200,11 @@ remove(Model){
     accept: () => {
      
       let object={id: Model.Id};
-      this.ProductService.apiProductDeleteDelete$Json$Response({id:object.id}).subscribe
+      this.ProductService.apiProductDeleteGet$Json({id:object.id}).subscribe
       (
         res => {
           console.log(res);
-          if(res.body.Code ==200){
+          if(res.Code ==200){
             this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:'  تم العملية بنجاح'});
          
             this.GatAll(); 
@@ -272,8 +272,8 @@ ImageUrl: any;
   for (let index = 0; index < this.file2.length; index++) {
     formData.append('files', this.file2[index]);
 }
-   this.UploadServicesService.UploadImage(formData).subscribe(event => {
- 
+   this.UploadServicesService.UploadImage2(formData).subscribe(event => {
+ debugger
   const result= event as any;
 console.log(result)
   this.ImageUrl=result.filePaths;
@@ -396,11 +396,11 @@ removeDiscount(){
     accept: () => {
      
       let object={id:  this.DiscountId};
-      this.DiscountService.apiDiscountDeleteDelete$Json$Response({id:object.id}).subscribe
+      this.DiscountService.apiDiscountDeleteGet$Json({id:object.id}).subscribe
       (
         res => {
           console.log(res);
-          if(res.body.Code ==200){
+          if(res.Code ==200){
             this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:'  تم العملية بنجاح'});
          
             this.DialogDiscount = false;

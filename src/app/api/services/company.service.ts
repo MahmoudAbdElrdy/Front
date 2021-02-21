@@ -215,21 +215,21 @@ export class CompanyService extends BaseService {
   }
 
   /**
-   * Path part for operation apiCompanyUpdatePut
+   * Path part for operation apiCompanyUpdatePost
    */
-  static readonly ApiCompanyUpdatePutPath = '/api/Company/Update';
+  static readonly ApiCompanyUpdatePostPath = '/api/Company/Update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCompanyUpdatePut$Plain()` instead.
+   * To access only the response body, use `apiCompanyUpdatePost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCompanyUpdatePut$Plain$Response(params?: {
+  apiCompanyUpdatePost$Plain$Response(params?: {
       body?: CompanyDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyUpdatePostPath, 'post');
     if (params) {
 
 
@@ -248,30 +248,30 @@ export class CompanyService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCompanyUpdatePut$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiCompanyUpdatePost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCompanyUpdatePut$Plain(params?: {
+  apiCompanyUpdatePost$Plain(params?: {
       body?: CompanyDto
   }): Observable<IResponseDto> {
 
-    return this.apiCompanyUpdatePut$Plain$Response(params).pipe(
+    return this.apiCompanyUpdatePost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCompanyUpdatePut$Json()` instead.
+   * To access only the response body, use `apiCompanyUpdatePost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCompanyUpdatePut$Json$Response(params?: {
+  apiCompanyUpdatePost$Json$Response(params?: {
       body?: CompanyDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyUpdatePostPath, 'post');
     if (params) {
 
 
@@ -290,36 +290,36 @@ export class CompanyService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCompanyUpdatePut$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiCompanyUpdatePost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCompanyUpdatePut$Json(params?: {
+  apiCompanyUpdatePost$Json(params?: {
       body?: CompanyDto
   }): Observable<IResponseDto> {
 
-    return this.apiCompanyUpdatePut$Json$Response(params).pipe(
+    return this.apiCompanyUpdatePost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
-   * Path part for operation apiCompanyDeleteDelete
+   * Path part for operation apiCompanyDeleteGet
    */
-  static readonly ApiCompanyDeleteDeletePath = '/api/Company/Delete';
+  static readonly ApiCompanyDeleteGetPath = '/api/Company/Delete';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCompanyDeleteDelete$Plain()` instead.
+   * To access only the response body, use `apiCompanyDeleteGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCompanyDeleteDelete$Plain$Response(params?: {
+  apiCompanyDeleteGet$Plain$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -338,32 +338,32 @@ export class CompanyService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCompanyDeleteDelete$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiCompanyDeleteGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCompanyDeleteDelete$Plain(params?: {
+  apiCompanyDeleteGet$Plain(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiCompanyDeleteDelete$Plain$Response(params).pipe(
+    return this.apiCompanyDeleteGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCompanyDeleteDelete$Json()` instead.
+   * To access only the response body, use `apiCompanyDeleteGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCompanyDeleteDelete$Json$Response(params?: {
+  apiCompanyDeleteGet$Json$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, CompanyService.ApiCompanyDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -382,16 +382,16 @@ export class CompanyService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCompanyDeleteDelete$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiCompanyDeleteGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCompanyDeleteDelete$Json(params?: {
+  apiCompanyDeleteGet$Json(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiCompanyDeleteDelete$Json$Response(params).pipe(
+    return this.apiCompanyDeleteGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }

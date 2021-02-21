@@ -215,21 +215,21 @@ export class CategoryService extends BaseService {
   }
 
   /**
-   * Path part for operation apiCategoryUpdatePut
+   * Path part for operation apiCategoryUpdatePost
    */
-  static readonly ApiCategoryUpdatePutPath = '/api/Category/Update';
+  static readonly ApiCategoryUpdatePostPath = '/api/Category/Update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCategoryUpdatePut$Plain()` instead.
+   * To access only the response body, use `apiCategoryUpdatePost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCategoryUpdatePut$Plain$Response(params?: {
+  apiCategoryUpdatePost$Plain$Response(params?: {
       body?: CategoryDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryUpdatePostPath, 'post');
     if (params) {
 
 
@@ -248,30 +248,30 @@ export class CategoryService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCategoryUpdatePut$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiCategoryUpdatePost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCategoryUpdatePut$Plain(params?: {
+  apiCategoryUpdatePost$Plain(params?: {
       body?: CategoryDto
   }): Observable<IResponseDto> {
 
-    return this.apiCategoryUpdatePut$Plain$Response(params).pipe(
+    return this.apiCategoryUpdatePost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCategoryUpdatePut$Json()` instead.
+   * To access only the response body, use `apiCategoryUpdatePost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCategoryUpdatePut$Json$Response(params?: {
+  apiCategoryUpdatePost$Json$Response(params?: {
       body?: CategoryDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryUpdatePostPath, 'post');
     if (params) {
 
 
@@ -290,36 +290,36 @@ export class CategoryService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCategoryUpdatePut$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiCategoryUpdatePost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiCategoryUpdatePut$Json(params?: {
+  apiCategoryUpdatePost$Json(params?: {
       body?: CategoryDto
   }): Observable<IResponseDto> {
 
-    return this.apiCategoryUpdatePut$Json$Response(params).pipe(
+    return this.apiCategoryUpdatePost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
-   * Path part for operation apiCategoryDeleteDelete
+   * Path part for operation apiCategoryDeleteGet
    */
-  static readonly ApiCategoryDeleteDeletePath = '/api/Category/Delete';
+  static readonly ApiCategoryDeleteGetPath = '/api/Category/Delete';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCategoryDeleteDelete$Plain()` instead.
+   * To access only the response body, use `apiCategoryDeleteGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCategoryDeleteDelete$Plain$Response(params?: {
+  apiCategoryDeleteGet$Plain$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -338,32 +338,32 @@ export class CategoryService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCategoryDeleteDelete$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiCategoryDeleteGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCategoryDeleteDelete$Plain(params?: {
+  apiCategoryDeleteGet$Plain(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiCategoryDeleteDelete$Plain$Response(params).pipe(
+    return this.apiCategoryDeleteGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiCategoryDeleteDelete$Json()` instead.
+   * To access only the response body, use `apiCategoryDeleteGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCategoryDeleteDelete$Json$Response(params?: {
+  apiCategoryDeleteGet$Json$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -382,16 +382,16 @@ export class CategoryService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiCategoryDeleteDelete$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiCategoryDeleteGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiCategoryDeleteDelete$Json(params?: {
+  apiCategoryDeleteGet$Json(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiCategoryDeleteDelete$Json$Response(params).pipe(
+    return this.apiCategoryDeleteGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }

@@ -320,21 +320,21 @@ export class RatingService extends BaseService {
   }
 
   /**
-   * Path part for operation apiRatingUpdatePut
+   * Path part for operation apiRatingUpdatePost
    */
-  static readonly ApiRatingUpdatePutPath = '/api/Rating/Update';
+  static readonly ApiRatingUpdatePostPath = '/api/Rating/Update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiRatingUpdatePut$Plain()` instead.
+   * To access only the response body, use `apiRatingUpdatePost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiRatingUpdatePut$Plain$Response(params?: {
+  apiRatingUpdatePost$Plain$Response(params?: {
       body?: RatingDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingUpdatePostPath, 'post');
     if (params) {
 
 
@@ -353,30 +353,30 @@ export class RatingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiRatingUpdatePut$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiRatingUpdatePost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiRatingUpdatePut$Plain(params?: {
+  apiRatingUpdatePost$Plain(params?: {
       body?: RatingDto
   }): Observable<IResponseDto> {
 
-    return this.apiRatingUpdatePut$Plain$Response(params).pipe(
+    return this.apiRatingUpdatePost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiRatingUpdatePut$Json()` instead.
+   * To access only the response body, use `apiRatingUpdatePost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiRatingUpdatePut$Json$Response(params?: {
+  apiRatingUpdatePost$Json$Response(params?: {
       body?: RatingDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingUpdatePostPath, 'post');
     if (params) {
 
 
@@ -395,36 +395,36 @@ export class RatingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiRatingUpdatePut$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiRatingUpdatePost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiRatingUpdatePut$Json(params?: {
+  apiRatingUpdatePost$Json(params?: {
       body?: RatingDto
   }): Observable<IResponseDto> {
 
-    return this.apiRatingUpdatePut$Json$Response(params).pipe(
+    return this.apiRatingUpdatePost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
-   * Path part for operation apiRatingDeleteDelete
+   * Path part for operation apiRatingDeleteGet
    */
-  static readonly ApiRatingDeleteDeletePath = '/api/Rating/Delete';
+  static readonly ApiRatingDeleteGetPath = '/api/Rating/Delete';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiRatingDeleteDelete$Plain()` instead.
+   * To access only the response body, use `apiRatingDeleteGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiRatingDeleteDelete$Plain$Response(params?: {
+  apiRatingDeleteGet$Plain$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -443,32 +443,32 @@ export class RatingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiRatingDeleteDelete$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiRatingDeleteGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiRatingDeleteDelete$Plain(params?: {
+  apiRatingDeleteGet$Plain(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiRatingDeleteDelete$Plain$Response(params).pipe(
+    return this.apiRatingDeleteGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiRatingDeleteDelete$Json()` instead.
+   * To access only the response body, use `apiRatingDeleteGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiRatingDeleteDelete$Json$Response(params?: {
+  apiRatingDeleteGet$Json$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, RatingService.ApiRatingDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -487,16 +487,16 @@ export class RatingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiRatingDeleteDelete$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiRatingDeleteGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiRatingDeleteDelete$Json(params?: {
+  apiRatingDeleteGet$Json(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiRatingDeleteDelete$Json$Response(params).pipe(
+    return this.apiRatingDeleteGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }

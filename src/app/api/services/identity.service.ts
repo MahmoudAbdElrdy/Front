@@ -11,6 +11,7 @@ import { map, filter } from 'rxjs/operators';
 import { ForgetPasswordEmail } from '../models/forget-password-email';
 import { IResponseDto } from '../models/i-response-dto';
 import { ResponseDto } from '../models/response-dto';
+import { UpdateUser } from '../models/update-user';
 import { UserLoginRequest } from '../models/user-login-request';
 import { UserRegisteration } from '../models/user-registeration';
 import { UserVerfayResetPasswordCode } from '../models/user-verfay-reset-password-code';
@@ -785,6 +786,7 @@ export class IdentityService extends BaseService {
    */
   verifyAccountPost$Plain$Response(params?: {
     Phone?: null | string;
+    resetPasswordCode?: null | string;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
@@ -792,6 +794,7 @@ export class IdentityService extends BaseService {
     if (params) {
 
       rb.query('Phone', params.Phone, {});
+      rb.query('resetPasswordCode', params.resetPasswordCode, {});
 
     }
     return this.http.request(rb.build({
@@ -813,6 +816,7 @@ export class IdentityService extends BaseService {
    */
   verifyAccountPost$Plain(params?: {
     Phone?: null | string;
+    resetPasswordCode?: null | string;
 
   }): Observable<IResponseDto> {
 
@@ -829,6 +833,7 @@ export class IdentityService extends BaseService {
    */
   verifyAccountPost$Json$Response(params?: {
     Phone?: null | string;
+    resetPasswordCode?: null | string;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
@@ -836,6 +841,7 @@ export class IdentityService extends BaseService {
     if (params) {
 
       rb.query('Phone', params.Phone, {});
+      rb.query('resetPasswordCode', params.resetPasswordCode, {});
 
     }
     return this.http.request(rb.build({
@@ -857,6 +863,7 @@ export class IdentityService extends BaseService {
    */
   verifyAccountPost$Json(params?: {
     Phone?: null | string;
+    resetPasswordCode?: null | string;
 
   }): Observable<IResponseDto> {
 
@@ -954,6 +961,188 @@ export class IdentityService extends BaseService {
   }): Observable<IResponseDto> {
 
     return this.getProfileGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * Path part for operation updateUserPost
+   */
+  static readonly UpdateUserPostPath = '/UpdateUser';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateUserPost$Plain()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserPost$Plain$Response(params?: {
+      body?: UpdateUser
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdateUserPostPath, 'post');
+    if (params) {
+
+
+      rb.body(params.body, 'application/*+json');
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateUserPost$Plain$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserPost$Plain(params?: {
+      body?: UpdateUser
+  }): Observable<IResponseDto> {
+
+    return this.updateUserPost$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateUserPost$Json()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserPost$Json$Response(params?: {
+      body?: UpdateUser
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdateUserPostPath, 'post');
+    if (params) {
+
+
+      rb.body(params.body, 'application/*+json');
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateUserPost$Json$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserPost$Json(params?: {
+      body?: UpdateUser
+  }): Observable<IResponseDto> {
+
+    return this.updateUserPost$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * Path part for operation uploadImagePost
+   */
+  static readonly UploadImagePostPath = '/UploadImage';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `uploadImagePost$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  uploadImagePost$Plain$Response(params?: {
+    ApplicationUserId?: null | string;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UploadImagePostPath, 'post');
+    if (params) {
+
+      rb.query('ApplicationUserId', params.ApplicationUserId, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `uploadImagePost$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  uploadImagePost$Plain(params?: {
+    ApplicationUserId?: null | string;
+
+  }): Observable<IResponseDto> {
+
+    return this.uploadImagePost$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `uploadImagePost$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  uploadImagePost$Json$Response(params?: {
+    ApplicationUserId?: null | string;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UploadImagePostPath, 'post');
+    if (params) {
+
+      rb.query('ApplicationUserId', params.ApplicationUserId, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `uploadImagePost$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  uploadImagePost$Json(params?: {
+    ApplicationUserId?: null | string;
+
+  }): Observable<IResponseDto> {
+
+    return this.uploadImagePost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }

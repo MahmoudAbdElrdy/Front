@@ -129,10 +129,10 @@ UpdateDb() {
  
   let object={body: this.rForm.value};
  
-    this.CategoryService.apiCategoryUpdatePut$Json$Response(object).subscribe(
+    this.CategoryService.apiCategoryUpdatePost$Json(object).subscribe(
      
       next => { debugger;
-        if(next.body.Code ==200){
+        if(next.Code ==200){
           this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:' تم العملية بنجاح'});
        
           this.GatAll();
@@ -171,11 +171,11 @@ remove(Model){
     accept: () => {
      
       let object={id: Model.Id};
-      this.CategoryService.apiCategoryDeleteDelete$Json$Response({id:object.id}).subscribe
+      this.CategoryService.apiCategoryDeleteGet$Json({id:object.id}).subscribe
       (
         res => {
           console.log(res);
-          if(res.body.Code ==200){
+          if(res.Code ==200){
             this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:'  تم العملية بنجاح'});
          
             this.GatAll(); 

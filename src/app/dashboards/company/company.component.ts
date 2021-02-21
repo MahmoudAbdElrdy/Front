@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { CompanyDto } from 'src/app/api/models';
-import{CompanyService} from 'src/app/api/services'
+import{CompanyService,UploadFileService} from 'src/app/api/services'
 import { UploadServicesService } from '../UploadServices/UploadServices.service';
 @Component({
   selector: 'app-company',
@@ -30,12 +30,13 @@ export class CompanyComponent implements OnInit {
   msgs: { severity: string; summary: string; detail: string; }[];
   longitude: any;
   latitude: any;
+  BaseFile: any;
   constructor(private SpinnerService: NgxSpinnerService,
     private CompanyService: CompanyService, 
     private UploadServicesService:UploadServicesService,private translate: TranslateService,
     private confirmationService: ConfirmationService,
     private router: Router,
-    private messageService: MessageService,private fb: FormBuilder ) {
+    private messageService: MessageService,private fb: FormBuilder,private UploadFileService:UploadFileService, ) {
       debugger;
       translate.addLangs(['en','ar']);
    // this.itemList=new Array;
@@ -48,6 +49,7 @@ export class CompanyComponent implements OnInit {
       this.setupForm();
     }
   this.getLocation();
+  this.Base();
   }
   paginate(event) {
     this.GatAll(event.page + 1, event.rows);
@@ -95,6 +97,8 @@ export class CompanyComponent implements OnInit {
     this.Dialog = true;
     this.Update=false;
     this.show=true;
+    this.image='';
+    this.userPhoto.nativeElement.value = null;
 }
 save(){
   if(this.Update==false){
@@ -134,6 +138,7 @@ Add() {
   this.Company.User.Password=this.rForm.controls.password.value;
   this.Company.User.ConfirmPassword=this.rForm.controls.password.value;
   this.Company.User.Role="Company";
+  this.Company.User.Image=this.image;
   let object={body: this.Company};
  
     this.CompanyService.apiCompanySaveNewPost$Json$Response(object).subscribe(
@@ -158,6 +163,7 @@ UpdateDb() {
   debugger;
   this.Company.CompanyDescription=this.rForm.controls.CompanyDescription.value;
  this.Company.Latitude=this.latitude;
+ this.Company.Id=this.rForm.controls.id.value;
  this.Company.Longitude=this.longitude;
  this.Company.User.FullName=this.rForm.controls.fullName.value;
  this.Company.User.Email=this.rForm.controls.email.value;
@@ -166,12 +172,13 @@ UpdateDb() {
  this.Company.User.Password=this.rForm.controls.password.value;
  this.Company.User.ConfirmPassword=this.rForm.controls.password.value;
  this.Company.User.Role="Company";
+ this.Company.User.Image=this.image;
   let object={body: this.Company};
  
-    this.CompanyService.apiCompanyUpdatePut$Json$Response(object).subscribe(
+    this.CompanyService.apiCompanyUpdatePost$Json(object).subscribe(
      
       next => { debugger;
-        if(next.body.Code ==200){
+        if(next.Code ==200){
           this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:' تم العملية بنجاح'});
        
           this.GatAll();
@@ -201,7 +208,10 @@ debugger;
       Latitude:this.fb.control(item.Latitude),
       Longitude:this.fb.control(item.Longitude),
       id:this.fb.control(item.Id),
+      
     });
+    this.image=item.User.Image!=null?item.User.Image:"";
+    this.userPhoto.nativeElement.value = null;
 }
 
 remove(Model){
@@ -213,11 +223,11 @@ remove(Model){
     accept: () => {
      
       let object={id: Model.Id};
-      this.CompanyService.apiCompanyDeleteDelete$Json$Response({id:object.id}).subscribe
+      this.CompanyService.apiCompanyDeleteGet$Json({id:object.id}).subscribe
       (
         res => {
           console.log(res);
-          if(res.body.Code ==200){
+          if(res.Code ==200){
             this.messageService.add({severity:'success', summary:' ',  key: 'myToast', detail:'  تم العملية بنجاح'});
          
             this.GatAll(); 
@@ -241,6 +251,36 @@ cancel() {
 
   this.rForm.reset();
 }
+image: any;
+fileToUpload = null;
+@ViewChild('userPhoto') userPhoto: ElementRef;
+uploadImage(event) 
+{
+  debugger;
+  let files = event.target.files;
+  this.fileToUpload = <File>files[0];
+  const formData = new FormData();
+  formData.append('file',  this.fileToUpload,  this.fileToUpload.name);
+/*     const result= event as any;
+*/     this.UploadServicesService.UploadImage(formData).subscribe(event => {
+  debugger;
+  const result= event as any;
 
+  this.image=result.Data;
+  this.fileToUpload=null;
+  this.rForm.patchValue({
+    image: result.Data
+  });
+   }
+   );
+  
 
+} 
+Base(){
+ 
+  this.UploadFileService.apiUploadFileBaseGet$Json()
+  .subscribe(res=>{
+    this.BaseFile=res;
+  })
+}
 }

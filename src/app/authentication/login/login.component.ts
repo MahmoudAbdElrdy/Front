@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.Model=next.Data;
       if(next.Code==200){
     debugger;
-    let jwt = next.Data;
+    let jwt = next.Data.token;
     let jwtData = jwt.split('.')[1]
     let decodedJwtJsonData = window.atob(jwtData)
     let decodedJwtData = JSON.parse(decodedJwtJsonData)

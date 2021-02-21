@@ -19,6 +19,11 @@ export class UploadServicesService extends BaseService {
 
 UploadImage(formData){
  
+  return     this.http.post(this.rootUrl + '/api/UploadFile/UploadImage', formData);
+   
+}
+UploadImage2(formData){
+ 
   return     this.http.post(this.rootUrl + '/api/UploadFile/FileUpload', formData);
    
 }

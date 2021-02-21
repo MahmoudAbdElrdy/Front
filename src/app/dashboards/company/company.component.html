@@ -75,7 +75,7 @@
                     class="alert alert-danger mt-2">email not valid</div>
             </div>
            
-                <div  *ngIf="show" class="form-group" >
+                <div   class="form-group" >
                     <label> الباسورد</label>
                     <input ng-model="password" formControlName="password"
                         class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
@@ -92,7 +92,12 @@
                 </div>
                 <div class="row">
                    
-                  
+                    <div class="form-group">
+                        <img  [src]="image?BaseFile+image:''">
+                        <!-- [src]="image?BaseFile+image:'./assets/images/download.png'"  -->
+                        <input #userPhoto  (change)="uploadImage($event)"  type="file">
+                    
+                        </div>
                 </div>
                
        

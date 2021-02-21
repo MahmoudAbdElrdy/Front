@@ -215,21 +215,21 @@ export class ProductService extends BaseService {
   }
 
   /**
-   * Path part for operation apiProductUpdatePut
+   * Path part for operation apiProductUpdatePost
    */
-  static readonly ApiProductUpdatePutPath = '/api/Product/Update';
+  static readonly ApiProductUpdatePostPath = '/api/Product/Update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiProductUpdatePut$Plain()` instead.
+   * To access only the response body, use `apiProductUpdatePost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiProductUpdatePut$Plain$Response(params?: {
+  apiProductUpdatePost$Plain$Response(params?: {
       body?: ProductDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductUpdatePostPath, 'post');
     if (params) {
 
 
@@ -248,30 +248,30 @@ export class ProductService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiProductUpdatePut$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductUpdatePost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiProductUpdatePut$Plain(params?: {
+  apiProductUpdatePost$Plain(params?: {
       body?: ProductDto
   }): Observable<IResponseDto> {
 
-    return this.apiProductUpdatePut$Plain$Response(params).pipe(
+    return this.apiProductUpdatePost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiProductUpdatePut$Json()` instead.
+   * To access only the response body, use `apiProductUpdatePost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiProductUpdatePut$Json$Response(params?: {
+  apiProductUpdatePost$Json$Response(params?: {
       body?: ProductDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductUpdatePutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductUpdatePostPath, 'post');
     if (params) {
 
 
@@ -290,36 +290,36 @@ export class ProductService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiProductUpdatePut$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductUpdatePost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiProductUpdatePut$Json(params?: {
+  apiProductUpdatePost$Json(params?: {
       body?: ProductDto
   }): Observable<IResponseDto> {
 
-    return this.apiProductUpdatePut$Json$Response(params).pipe(
+    return this.apiProductUpdatePost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
-   * Path part for operation apiProductDeleteDelete
+   * Path part for operation apiProductDeleteGet
    */
-  static readonly ApiProductDeleteDeletePath = '/api/Product/Delete';
+  static readonly ApiProductDeleteGetPath = '/api/Product/Delete';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiProductDeleteDelete$Plain()` instead.
+   * To access only the response body, use `apiProductDeleteGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiProductDeleteDelete$Plain$Response(params?: {
+  apiProductDeleteGet$Plain$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -338,32 +338,32 @@ export class ProductService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiProductDeleteDelete$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductDeleteGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiProductDeleteDelete$Plain(params?: {
+  apiProductDeleteGet$Plain(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiProductDeleteDelete$Plain$Response(params).pipe(
+    return this.apiProductDeleteGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiProductDeleteDelete$Json()` instead.
+   * To access only the response body, use `apiProductDeleteGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiProductDeleteDelete$Json$Response(params?: {
+  apiProductDeleteGet$Json$Response(params?: {
     id?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductDeleteDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductDeleteGetPath, 'get');
     if (params) {
 
       rb.query('id', params.id, {});
@@ -382,16 +382,16 @@ export class ProductService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiProductDeleteDelete$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductDeleteGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiProductDeleteDelete$Json(params?: {
+  apiProductDeleteGet$Json(params?: {
     id?: number;
 
   }): Observable<IResponseDto> {
 
-    return this.apiProductDeleteDelete$Json$Response(params).pipe(
+    return this.apiProductDeleteGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
