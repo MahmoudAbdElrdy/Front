@@ -122,6 +122,105 @@ export class CategoryService extends BaseService {
   }
 
   /**
+   * Path part for operation apiCategoryGetAllCitiesGet
+   */
+  static readonly ApiCategoryGetAllCitiesGetPath = '/api/Category/GetAllCities';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiCategoryGetAllCitiesGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiCategoryGetAllCitiesGet$Plain$Response(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryGetAllCitiesGetPath, 'get');
+    if (params) {
+
+      rb.query('pageNumber', params.pageNumber, {});
+      rb.query('pageSize', params.pageSize, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiCategoryGetAllCitiesGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiCategoryGetAllCitiesGet$Plain(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<IResponseDto> {
+
+    return this.apiCategoryGetAllCitiesGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiCategoryGetAllCitiesGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiCategoryGetAllCitiesGet$Json$Response(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, CategoryService.ApiCategoryGetAllCitiesGetPath, 'get');
+    if (params) {
+
+      rb.query('pageNumber', params.pageNumber, {});
+      rb.query('pageSize', params.pageSize, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiCategoryGetAllCitiesGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiCategoryGetAllCitiesGet$Json(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<IResponseDto> {
+
+    return this.apiCategoryGetAllCitiesGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
    * Path part for operation apiCategoryGetByIdGet
    */
   static readonly ApiCategoryGetByIdGetPath = '/api/Category/GetById';

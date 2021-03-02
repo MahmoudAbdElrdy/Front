@@ -44,6 +44,7 @@ export class ProductComponent implements OnInit {
   CategoryList: any;
   CompanyList: any;
   BaseFile: string;
+  CityList: any;
   constructor(private SpinnerService: NgxSpinnerService,
     private ProductService:  ProductService, private CategoryService:CategoryService,
     private UploadServicesService:UploadServicesService,private translate: TranslateService,
@@ -58,6 +59,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.GetAllCategory();
     this.GetAllCompany();
+    this.GetAllCities();
     this.Base();
     this.translate.setDefaultLang(localStorage.getItem('lang'));
     if (!this.rForm) {
@@ -98,6 +100,7 @@ export class ProductComponent implements OnInit {
       'description':[null],
       'price':[null],
       productImages:[[],[]],
+      tblCitiesId:[null],
     });
    
   }
@@ -187,6 +190,7 @@ debugger;
       'description':this.fb.control(item.Description),
       'price':this.fb.control(item.Price),
       productImages:this.fb.control(item.ProductImages),
+      tblCitiesId:this.fb.control(item.tblCitiesId),
      
     });
 }
@@ -244,7 +248,22 @@ GetAllCategory(){
 
   
 }
+GetAllCities(){
+   
+  this.CategoryService.apiCategoryGetAllCitiesGet$Json({pageNumber:0,pageSize:0}).subscribe
+  (
+    (res) => {
+     
+      console.log(("CityList:"+this.CityList));
+     this.CityList = res.Data;
+     this.CityList=this.CityList.map( (val)=> { return {label:val.ArabicCityName,value:val.Id}});
+     console.log( res);
+    },
+    err => console.error(err)
+  );
 
+  
+}
 GetAllCompany(){
    
   this.CompanyService.apiCompanyGetPageGet$Json({pageNumber:0,pageSize:0}).subscribe

@@ -25,6 +25,13 @@ export const ROUTESAr: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  }, {
+    path: '/ArchiveProduct',
+    title: 'أرشيف المنتجات',
+    icon: 'mdi mdi-clipboard-text',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 ];
 export const ROUTES: RouteInfo[] = [
@@ -48,6 +55,14 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/Product',
     title: 'Product',
+    icon: 'mdi mdi-clipboard-text',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/ArchiveProduct',
+    title: 'Archive Product',
     icon: 'mdi mdi-clipboard-text',
     class: '',
     extralink: false,

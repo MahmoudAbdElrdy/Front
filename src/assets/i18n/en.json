@@ -32,5 +32,6 @@
       "satrtDate":"start Date",
       "endDate":"end Date",
       "Discounttype":"Discount Type",
-      "offer":"offer"
+      "offer":"offer",
+      "CityName":"City Name"
 }

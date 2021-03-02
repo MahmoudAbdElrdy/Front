@@ -34,5 +34,6 @@
        "satrtDate":"تاريخ البداية",
        "endDate":"تاريخ النهاية",
        "Discounttype":"نوع الخصم",
-       "offer":"العرض"
+       "offer":"العرض",
+       "CityName":"المدنية"
 }

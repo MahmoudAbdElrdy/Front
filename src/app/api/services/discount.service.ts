@@ -136,6 +136,8 @@ export class DiscountService extends BaseService {
     pageNumber?: number;
     pageSize?: number;
     CategoryId?: number;
+    CityId?: number;
+    ProdcutName?: null | string;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
@@ -145,6 +147,8 @@ export class DiscountService extends BaseService {
       rb.query('pageNumber', params.pageNumber, {});
       rb.query('pageSize', params.pageSize, {});
       rb.query('CategoryId', params.CategoryId, {});
+      rb.query('CityId', params.CityId, {});
+      rb.query('ProdcutName', params.ProdcutName, {});
 
     }
     return this.http.request(rb.build({
@@ -168,6 +172,8 @@ export class DiscountService extends BaseService {
     pageNumber?: number;
     pageSize?: number;
     CategoryId?: number;
+    CityId?: number;
+    ProdcutName?: null | string;
 
   }): Observable<IResponseDto> {
 
@@ -186,6 +192,8 @@ export class DiscountService extends BaseService {
     pageNumber?: number;
     pageSize?: number;
     CategoryId?: number;
+    CityId?: number;
+    ProdcutName?: null | string;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
@@ -195,6 +203,8 @@ export class DiscountService extends BaseService {
       rb.query('pageNumber', params.pageNumber, {});
       rb.query('pageSize', params.pageSize, {});
       rb.query('CategoryId', params.CategoryId, {});
+      rb.query('CityId', params.CityId, {});
+      rb.query('ProdcutName', params.ProdcutName, {});
 
     }
     return this.http.request(rb.build({
@@ -218,6 +228,8 @@ export class DiscountService extends BaseService {
     pageNumber?: number;
     pageSize?: number;
     CategoryId?: number;
+    CityId?: number;
+    ProdcutName?: null | string;
 
   }): Observable<IResponseDto> {
 

@@ -58,6 +58,7 @@ import { CompanyService, DiscountService, IdentityService, ProductService } from
 import { ProductComponent } from './Product/Product.component';
 import { CompanyComponent } from './company/company.component';
 import { DiscountComponent } from './Product/discount/discount.component';
+import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -107,7 +108,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         SlideMenuModule,PaginatorModule,ConfirmDialogModule,RadioButtonModule,RatingModule,CalendarModule
     ],
     declarations: [	
-        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent  ],
+        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent  ],
     providers: [//TableService
         UploadServicesService,AuthGuard,ConfirmationService,ProductService,IdentityService,CompanyService,DiscountService
     ]

@@ -7,4 +7,5 @@ export class ProductDto {
   ProdcutName?: null | string;
   ProductImages?: null | Array<string>;
   Id?: number;
+  tblCitiesId:null|number;
 }

@@ -6,6 +6,7 @@ import { AuthGuardSupplier } from './AuthGuardSupplier';
 import { CategoryComponent } from './category/category.component';
 import { CompanyComponent } from './company/company.component';
 import { Dashboard1Component } from './dashboard1/dashboard1.component';
+import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
 import { ProductComponent } from './Product/Product.component';
 
 
@@ -78,7 +79,20 @@ export const DashboardRoutes: Routes = [
                     ]
                 }
             }
-//CompanyComponent
+            ,
+            {
+                path: 'ArchiveProduct',
+                canActivate:[AuthGuard],
+                component: ArchiveProductComponent,
+                data: {
+                    title: 'ArchiveProduct',
+                    urls: [
+                        { title: 'ArchiveProduct', url: '/ArchiveProduct' },
+                        { title: 'ArchiveProduct' }
+                    ]
+                }
+            }
+//ArchiveProductComponent
         ]
     },
     
