@@ -779,14 +779,16 @@ export class ProductService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiProductDeleteProductFavouriteGet$Plain$Response(params?: {
-    id?: number;
+    ApplicationUserId?: null | string;
+    DiscountId?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductDeleteProductFavouriteGetPath, 'get');
     if (params) {
 
-      rb.query('id', params.id, {});
+      rb.query('ApplicationUserId', params.ApplicationUserId, {});
+      rb.query('DiscountId', params.DiscountId, {});
 
     }
     return this.http.request(rb.build({
@@ -807,7 +809,8 @@ export class ProductService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiProductDeleteProductFavouriteGet$Plain(params?: {
-    id?: number;
+    ApplicationUserId?: null | string;
+    DiscountId?: number;
 
   }): Observable<IResponseDto> {
 
@@ -823,14 +826,16 @@ export class ProductService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiProductDeleteProductFavouriteGet$Json$Response(params?: {
-    id?: number;
+    ApplicationUserId?: null | string;
+    DiscountId?: number;
 
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ProductService.ApiProductDeleteProductFavouriteGetPath, 'get');
     if (params) {
 
-      rb.query('id', params.id, {});
+      rb.query('ApplicationUserId', params.ApplicationUserId, {});
+      rb.query('DiscountId', params.DiscountId, {});
 
     }
     return this.http.request(rb.build({
@@ -851,7 +856,8 @@ export class ProductService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiProductDeleteProductFavouriteGet$Json(params?: {
-    id?: number;
+    ApplicationUserId?: null | string;
+    DiscountId?: number;
 
   }): Observable<IResponseDto> {
 

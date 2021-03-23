@@ -6,6 +6,7 @@ import { AuthGuardSupplier } from './AuthGuardSupplier';
 import { CategoryComponent } from './category/category.component';
 import { CompanyComponent } from './company/company.component';
 import { Dashboard1Component } from './dashboard1/dashboard1.component';
+import { NotificationClientComponent } from './notification-client/notification-client.component';
 import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
 import { ProductComponent } from './Product/Product.component';
 
@@ -91,8 +92,20 @@ export const DashboardRoutes: Routes = [
                         { title: 'ArchiveProduct' }
                     ]
                 }
+            } ,
+            {
+                path: 'NotificationClient',
+                canActivate:[AuthGuard],
+                component: NotificationClientComponent,
+                data: {
+                    title: 'NotificationClient',
+                    urls: [
+                        { title: 'NotificationClient', url: '/NotificationClient' },
+                        { title: 'NotificationClient' }
+                    ]
+                }
             }
-//ArchiveProductComponent
+//NotificationClientComponent
         ]
     },
     

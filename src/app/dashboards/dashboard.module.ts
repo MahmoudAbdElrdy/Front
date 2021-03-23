@@ -54,11 +54,14 @@ import { CategoryComponent } from './category/category.component';
 import { PaginatorModule } from 'primeng/paginator';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { CompanyService, DiscountService, IdentityService, ProductService } from 'src/app/api/services';
+import { CompanyService, DiscountService, IdentityService, NotificationClientService, ProductService } from 'src/app/api/services';
 import { ProductComponent } from './Product/Product.component';
 import { CompanyComponent } from './company/company.component';
 import { DiscountComponent } from './Product/discount/discount.component';
 import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
+import { NotificationClientComponent } from './notification-client/notification-client.component';
+import {MultiSelectModule} from 'primeng/multiselect';
+import { PurchasesServiceProxy } from 'src/shared/service-proxies/service-proxies';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -105,13 +108,13 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         PasswordModule,
         BreadcrumbModule,
         PanelMenuModule,
-        SlideMenuModule,PaginatorModule,ConfirmDialogModule,RadioButtonModule,RatingModule,CalendarModule
+        SlideMenuModule,PaginatorModule,ConfirmDialogModule,RadioButtonModule,RatingModule,CalendarModule,MultiSelectModule
     ],
     declarations: [	
-        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent  ],
+        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent, NotificationClientComponent  ],
     providers: [//TableService
-        UploadServicesService,AuthGuard,ConfirmationService,ProductService,IdentityService,CompanyService,DiscountService
-    ]
+        UploadServicesService,AuthGuard,ConfirmationService,ProductService,IdentityService,CompanyService,DiscountService,NotificationClientService
+   ,PurchasesServiceProxy ]
 })
 export class DashboardModule { }
   

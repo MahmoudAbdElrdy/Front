@@ -21,6 +21,52 @@ export class UploadFileService extends BaseService {
   }
 
   /**
+   * Path part for operation apiUploadFileUploadImagePost
+   */
+  static readonly ApiUploadFileUploadImagePostPath = '/api/UploadFile/UploadImage';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiUploadFileUploadImagePost()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiUploadFileUploadImagePost$Response(params?: {
+
+  }): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UploadFileService.ApiUploadFileUploadImagePostPath, 'post');
+    if (params) {
+
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiUploadFileUploadImagePost$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiUploadFileUploadImagePost(params?: {
+
+  }): Observable<void> {
+
+    return this.apiUploadFileUploadImagePost$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
    * Path part for operation apiUploadFileFileUploadPost
    */
   static readonly ApiUploadFileFileUploadPostPath = '/api/UploadFile/FileUpload';

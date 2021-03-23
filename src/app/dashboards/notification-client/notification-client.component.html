@@ -1,0 +1,89 @@
+<!-- <p-breadcrumb [model]="Model" [home]="home"></p-breadcrumb> -->
+<p-toast [style]="{ marginTop: '80px' }" key="myToast"></p-toast>
+   
+            <button pButton pRipple label="ارسال اشعار" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+               <hr/>
+
+               <p-table   #dt  [value]="itemList"   [resizableColumns]="true" [autoLayout]="true" 
+               
+              [lazy]="true" (onLazyLoad)="onLazyLoadData($event)" 
+             >
+                  
+                 
+    <ng-template pTemplate="header">
+        <tr>
+          
+            <th hidden>id</th>
+          
+            <th>{{'title'|translate}}</th>   
+           
+            <th >{{'Action'|translate}}</th>
+        </tr>
+    </ng-template>
+     <ng-template pTemplate="body" let-Model>
+        <tr>
+           
+            <td hidden>{{Model.id}}</td>
+           
+         
+            <td>{{Model.Title}}</td>
+           
+            <td>
+                <a (click)="showDialog(Model)" class="btn btn-primary btn-sm">عرض</a>
+              
+                <a (click)="remove(Model)" class="btn btn-danger btn-sm" ><i class="fas fa-trash-alt"></i></a>
+               
+               
+              </td>
+           
+        </tr>
+        
+    </ng-template>
+    
+</p-table>
+<p-paginator alwaysShow="true" showCurrentPageReport="true" [rows]="10"
+[rowsPerPageOptions]="[10,15,20]"  [totalRecords]="totalRowCount"
+ (onPageChange)="paginate($event)"></p-paginator>
+
+<p-dialog header="" [(visible)]="Dialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"   styleClass="mydialog">
+         <form novalidate (ngSubmit)="save()" [formGroup]="rForm">
+            <div *ngIf="Update" class="form-group">
+                <label for="clients">{{'Name'|translate}}</label>
+            <div  *ngFor="let data of  UsersPrint; let i=index">
+                <label>
+                    {{data}}
+                  
+                </label>
+            </div> 
+         </div> 
+            <div *ngIf="!Update" class="form-group">
+                <label for="clients">{{'Name'|translate}}</label>
+                <br/>
+                <p-multiSelect [style]="{'width': '100%'}" [options]="UserList"  name="clients" formControlName="clients"></p-multiSelect>
+                <!-- <p-dropdown [options]="CategoryList"  placeholder=" {{'select'|translate}}" name="categoryId" formControlName="categoryId"  [filter]="true"></p-dropdown>   
+        --> </div>
+        <div class="form-group">
+          <label for="title">{{'title'|translate}}</label>
+          <input type="text" formControlName="title" class="form-control" id="title" required>
+           
+          <div class="error" *ngIf="!rForm.controls['title'].valid && rForm.controls['title'].touched">
+            {{titleAlert}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">{{'content'|translate}}</label>
+        <input type="text" formControlName="content" class="form-control" id="content" required>
+         
+      
+  </div>
+      
+       
+        <button type="submit" *ngIf="!Update" class="btn btn-primary"[disabled]="rForm.invalid" >{{'save'|translate}}</button> 
+        <button type="button" class="btn btn-secondary" (click)="cancel()">{{'cancel'|translate}}</button>
+      </form>
+</p-dialog>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">{{'PleaseWait'|translate}} </p>  
+    </ngx-spinner> 
+    <p-confirmDialog [style]="{width: '50vw'}" ></p-confirmDialog>

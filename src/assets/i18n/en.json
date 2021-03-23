@@ -33,5 +33,7 @@
       "endDate":"end Date",
       "Discounttype":"Discount Type",
       "offer":"offer",
-      "CityName":"City Name"
+      "CityName":"City Name",
+      "title":"title",
+      "content":"content"
 }

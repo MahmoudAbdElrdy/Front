@@ -32,6 +32,14 @@ export const ROUTESAr: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/NotificationClient',
+    title: 'الاشعارات',
+    icon: 'mdi mdi-clipboard-text',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 ];
 export const ROUTES: RouteInfo[] = [
@@ -63,6 +71,14 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/ArchiveProduct',
     title: 'Archive Product',
+    icon: 'mdi mdi-clipboard-text',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/NotificationClient',
+    title: 'NotificationClient',
     icon: 'mdi mdi-clipboard-text',
     class: '',
     extralink: false,

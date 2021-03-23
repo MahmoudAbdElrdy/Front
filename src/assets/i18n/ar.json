@@ -35,5 +35,7 @@
        "endDate":"تاريخ النهاية",
        "Discounttype":"نوع الخصم",
        "offer":"العرض",
-       "CityName":"المدنية"
+       "CityName":"المدنية",
+       "title":"عنوان الرسالة",
+       "content":"المحتوي"
 }
