@@ -35,5 +35,9 @@
       "offer":"offer",
       "CityName":"City Name",
       "title":"title",
-      "content":"content"
+      "content":"content",
+      "RandomCode":"Product Code",
+      "PhoneNumber":"Phone Number",
+      "ProductImages":"Product Images",
+      "StatusReceived":"Status Received"
 }

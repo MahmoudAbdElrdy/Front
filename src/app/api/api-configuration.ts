@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiConfiguration {
  rootUrl: string = 'http://localhost:50217';
- // rootUrl: string = 'http://webapi.topiata.com';
+ // rootUrl: string = 'https://topiata.com/';
   //http://webapi.topiata.com/
 }
 

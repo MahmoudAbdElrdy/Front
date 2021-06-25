@@ -280,7 +280,7 @@ GetAllCompany(){
 
 }
 
-ImageUrl: any;
+  ImageUrl: any;
    fileToUpload = null;
    @ViewChild('userPhoto') userPhoto: ElementRef;
    uploadImage(event) 

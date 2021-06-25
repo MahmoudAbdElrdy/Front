@@ -9,6 +9,7 @@ import { Dashboard1Component } from './dashboard1/dashboard1.component';
 import { NotificationClientComponent } from './notification-client/notification-client.component';
 import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
 import { ProductComponent } from './Product/Product.component';
+import { PurchasesComponent } from './purchases/purchases.component';
 
 
 export const DashboardRoutes: Routes = [
@@ -102,6 +103,19 @@ export const DashboardRoutes: Routes = [
                     urls: [
                         { title: 'NotificationClient', url: '/NotificationClient' },
                         { title: 'NotificationClient' }
+                    ]
+                }
+            }
+            ,
+            {
+                path: 'Purchases',
+                canActivate:[AuthGuard],
+                component: PurchasesComponent,
+                data: {
+                    title: 'Purchases',
+                    urls: [
+                        { title: 'Purchases', url: '/Purchases' },
+                        { title: 'Purchases' }
                     ]
                 }
             }

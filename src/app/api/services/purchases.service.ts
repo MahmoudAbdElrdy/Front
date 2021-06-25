@@ -128,6 +128,105 @@ export class PurchasesService extends BaseService {
   }
 
   /**
+   * Path part for operation apiPurchasesGetPurchasesGet
+   */
+  static readonly ApiPurchasesGetPurchasesGetPath = '/api/Purchases/GetPurchases';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiPurchasesGetPurchasesGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiPurchasesGetPurchasesGet$Plain$Response(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PurchasesService.ApiPurchasesGetPurchasesGetPath, 'get');
+    if (params) {
+
+      rb.query('pageNumber', params.pageNumber, {});
+      rb.query('pageSize', params.pageSize, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiPurchasesGetPurchasesGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiPurchasesGetPurchasesGet$Plain(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<IResponseDto> {
+
+    return this.apiPurchasesGetPurchasesGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiPurchasesGetPurchasesGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiPurchasesGetPurchasesGet$Json$Response(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PurchasesService.ApiPurchasesGetPurchasesGetPath, 'get');
+    if (params) {
+
+      rb.query('pageNumber', params.pageNumber, {});
+      rb.query('pageSize', params.pageSize, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiPurchasesGetPurchasesGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiPurchasesGetPurchasesGet$Json(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<IResponseDto> {
+
+    return this.apiPurchasesGetPurchasesGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
    * Path part for operation apiPurchasesGetAllClientGet
    */
   static readonly ApiPurchasesGetAllClientGetPath = '/api/Purchases/GetAllClient';

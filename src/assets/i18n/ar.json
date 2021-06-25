@@ -37,5 +37,9 @@
        "offer":"العرض",
        "CityName":"المدنية",
        "title":"عنوان الرسالة",
-       "content":"المحتوي"
+       "content":"المحتوي",
+       "RandomCode":"كود المنتج",
+       "PhoneNumber":"رقم الجوال",
+       "ProductImages":"الصورة",
+       "StatusReceived":"حالة العرض"
 }

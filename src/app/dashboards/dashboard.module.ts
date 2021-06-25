@@ -24,9 +24,7 @@ import {MessageService,MenuItem, ConfirmationService} from 'primeng/api';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {PasswordModule} from 'primeng/password';
-import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
-
 import {DataViewModule} from 'primeng/dataview'
 import {ToastModule} from 'primeng/toast';
 import {PanelModule} from 'primeng/panel';
@@ -45,8 +43,10 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {CheckboxModule} from 'primeng/checkbox';
+import {MultiSelectModule} from 'primeng/multiselect';
 import { HttpLoaderFactory } from '../app.module';
 import { HttpClient } from '@angular/common/http';
+
 import { NgxSpinnerModule } from "ngx-spinner";  
 import { AuthGuard } from './auth-guard';
 import { UploadServicesService } from './UploadServices/UploadServices.service';
@@ -60,8 +60,9 @@ import { CompanyComponent } from './company/company.component';
 import { DiscountComponent } from './Product/discount/discount.component';
 import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
 import { NotificationClientComponent } from './notification-client/notification-client.component';
-import {MultiSelectModule} from 'primeng/multiselect';
+
 import { PurchasesServiceProxy } from 'src/shared/service-proxies/service-proxies';
+import { PurchasesComponent } from './purchases/purchases.component';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -111,7 +112,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         SlideMenuModule,PaginatorModule,ConfirmDialogModule,RadioButtonModule,RatingModule,CalendarModule,MultiSelectModule
     ],
     declarations: [	
-        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent, NotificationClientComponent  ],
+        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent, NotificationClientComponent, PurchasesComponent  ],
     providers: [//TableService
         UploadServicesService,AuthGuard,ConfirmationService,ProductService,IdentityService,CompanyService,DiscountService,NotificationClientService
    ,PurchasesServiceProxy ]
