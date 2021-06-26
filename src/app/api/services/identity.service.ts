@@ -13,6 +13,7 @@ import { ForgetPasswordEmail } from '../models/forget-password-email';
 import { IResponseDto } from '../models/i-response-dto';
 import { ResponseDto } from '../models/response-dto';
 import { UpdateUser } from '../models/update-user';
+import { UpdateUserWeb } from '../models/update-user';
 import { UserLoginRequest } from '../models/user-login-request';
 import { UserRegisteration } from '../models/user-registeration';
 import { UserVerfayResetPasswordCode } from '../models/user-verfay-reset-password-code';
@@ -1056,6 +1057,95 @@ export class IdentityService extends BaseService {
   }
 
   /**
+   * Path part for operation updateUserWebPost
+   */
+  static readonly UpdateUserWebPostPath = '/UpdateUserWeb';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateUserWebPost$Plain()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserWebPost$Plain$Response(params?: {
+      body?: UpdateUserWeb
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdateUserWebPostPath, 'post');
+    if (params) {
+
+
+      rb.body(params.body, 'application/*+json');
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateUserWebPost$Plain$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserWebPost$Plain(params?: {
+      body?: UpdateUserWeb
+  }): Observable<IResponseDto> {
+
+    return this.updateUserWebPost$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateUserWebPost$Json()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserWebPost$Json$Response(params?: {
+      body?: UpdateUserWeb
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdateUserWebPostPath, 'post');
+    if (params) {
+
+
+      rb.body(params.body, 'application/*+json');
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateUserWebPost$Json$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateUserWebPost$Json(params?: {
+      body?: UpdateUserWeb
+  }): Observable<IResponseDto> {
+
+    return this.updateUserWebPost$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
    * Path part for operation uploadImagePost
    */
   static readonly UploadImagePostPath = '/UploadImage';
@@ -1149,21 +1239,21 @@ export class IdentityService extends BaseService {
   }
 
   /**
-   * Path part for operation updatePost
+   * Path part for operation updateTokenPost
    */
-  static readonly UpdatePostPath = '/Update';
+  static readonly UpdateTokenPostPath = '/UpdateToken';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `updatePost$Plain()` instead.
+   * To access only the response body, use `updateTokenPost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  updatePost$Plain$Response(params?: {
+  updateTokenPost$Plain$Response(params?: {
       body?: ClientTokenDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdatePostPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdateTokenPostPath, 'post');
     if (params) {
 
 
@@ -1182,30 +1272,30 @@ export class IdentityService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `updatePost$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `updateTokenPost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  updatePost$Plain(params?: {
+  updateTokenPost$Plain(params?: {
       body?: ClientTokenDto
   }): Observable<IResponseDto> {
 
-    return this.updatePost$Plain$Response(params).pipe(
+    return this.updateTokenPost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `updatePost$Json()` instead.
+   * To access only the response body, use `updateTokenPost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  updatePost$Json$Response(params?: {
+  updateTokenPost$Json$Response(params?: {
       body?: ClientTokenDto
   }): Observable<StrictHttpResponse<IResponseDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdatePostPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.UpdateTokenPostPath, 'post');
     if (params) {
 
 
@@ -1224,15 +1314,207 @@ export class IdentityService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `updatePost$Json$Response()` instead.
+   * To access the full response (for headers, for example), `updateTokenPost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  updatePost$Json(params?: {
+  updateTokenPost$Json(params?: {
       body?: ClientTokenDto
   }): Observable<IResponseDto> {
 
-    return this.updatePost$Json$Response(params).pipe(
+    return this.updateTokenPost$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * Path part for operation getPageGet
+   */
+  static readonly GetPageGetPath = '/GetPage';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getPageGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getPageGet$Plain$Response(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.GetPageGetPath, 'get');
+    if (params) {
+
+      rb.query('pageNumber', params.pageNumber, {});
+      rb.query('pageSize', params.pageSize, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getPageGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getPageGet$Plain(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<IResponseDto> {
+
+    return this.getPageGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getPageGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getPageGet$Json$Response(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.GetPageGetPath, 'get');
+    if (params) {
+
+      rb.query('pageNumber', params.pageNumber, {});
+      rb.query('pageSize', params.pageSize, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getPageGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getPageGet$Json(params?: {
+    pageNumber?: number;
+    pageSize?: number;
+
+  }): Observable<IResponseDto> {
+
+    return this.getPageGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * Path part for operation deleteGet
+   */
+  static readonly DeleteGetPath = '/Delete';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `deleteGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteGet$Plain$Response(params?: {
+    id?: null | string;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.DeleteGetPath, 'get');
+    if (params) {
+
+      rb.query('id', params.id, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `deleteGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteGet$Plain(params?: {
+    id?: null | string;
+
+  }): Observable<IResponseDto> {
+
+    return this.deleteGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `deleteGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteGet$Json$Response(params?: {
+    id?: null | string;
+
+  }): Observable<StrictHttpResponse<IResponseDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, IdentityService.DeleteGetPath, 'get');
+    if (params) {
+
+      rb.query('id', params.id, {});
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<IResponseDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `deleteGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteGet$Json(params?: {
+    id?: null | string;
+
+  }): Observable<IResponseDto> {
+
+    return this.deleteGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<IResponseDto>) => r.body as IResponseDto)
     );
   }

@@ -49,6 +49,15 @@ export const ROUTESAr: RouteInfo[] = [
     extralink: false,
     submenu: []
   }
+  ,
+  {
+    path: '/Users',
+    title: 'المستخدمين',
+    icon: 'mdi mdi-clipboard-text',
+    class: '',
+    extralink: false,
+    submenu: []
+  }
 ];
 export const ROUTES: RouteInfo[] = [
  
@@ -99,5 +108,37 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  } ,
+  {
+    path: '/Users',
+    title: 'Users',
+    icon: 'mdi mdi-clipboard-text',
+    class: '',
+    extralink: false,
+    submenu: []
   }
+];
+export const ROUTESArClient: RouteInfo[] = [
+
+ {
+   path: '/Sales',
+   title: 'المبيعات',
+   icon: 'mdi mdi-clipboard-text',
+   class: '',
+   extralink: false,
+   submenu: []
+ }
+
+];
+export const ROUTESClient: RouteInfo[] = [
+
+ {
+   path: '/Sales',
+   title: 'Sales',
+   icon: 'mdi mdi-clipboard-text',
+   class: '',
+   extralink: false,
+   submenu: []
+ } 
+
 ];

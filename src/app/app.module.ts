@@ -38,6 +38,8 @@ import {MessageService,MenuItem} from 'primeng/api';
 import { Dashboard1Component } from './dashboards/dashboard1/dashboard1.component';
 import { AppConsts } from 'src/AppConsts';
 import { CalendarModule } from 'angular-calendar';
+import { EMSideBarComponent } from './shared/EM-side-bar/EM-side-bar.component';
+import { EMNavigationComponent } from './shared/EM-navigation/EM-navigation.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
     wheelSpeed: 1,
@@ -58,7 +60,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         BlankComponent,
         NavigationComponent,
         BreadcrumbComponent,
-        SidebarComponent
+        SidebarComponent,
+        EMSideBarComponent,
+        EMNavigationComponent
     ],
     imports: [NgxSpinnerModule,
         CommonModule,

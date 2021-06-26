@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { AuthGuard } from './dashboards/auth-guard';
+import { UsersComponent } from './Users/Users.component';
 
 
 
@@ -23,6 +25,10 @@ export const Approutes: Routes = [
                 path: 'starter',
                 loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
             },
+            {
+                path: '',
+                loadChildren: () => import('./Users/Users.module').then(m => m.UsersModule)
+        }
             // {
             //     path: 'component',
             //     loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
@@ -66,7 +72,18 @@ export const Approutes: Routes = [
             }
         ]
     },
-   
+    // {
+    //     path: 'User',
+    //     canActivate: [AuthGuard],
+    //     component: UsersComponent,
+    //     children: [
+    //         { path: '', redirectTo: '/User/Purchases', pathMatch: 'full' },
+    //         {
+    //                 path: '',
+    //                 loadChildren: () => import('./Users/Users.module').then(m => m.UsersModule)
+    //         }
+    //     ]
+    // },
     {
         path: '**',
         redirectTo: '/404'

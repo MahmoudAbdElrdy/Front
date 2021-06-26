@@ -63,6 +63,8 @@ import { NotificationClientComponent } from './notification-client/notification-
 
 import { PurchasesServiceProxy } from 'src/shared/service-proxies/service-proxies';
 import { PurchasesComponent } from './purchases/purchases.component';
+import { UsersComponent } from './users/users.component';
+import { PurchaseUserComponent } from './purchase-user/purchase-user.component';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -112,7 +114,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         SlideMenuModule,PaginatorModule,ConfirmDialogModule,RadioButtonModule,RatingModule,CalendarModule,MultiSelectModule
     ],
     declarations: [	
-        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent, NotificationClientComponent, PurchasesComponent  ],
+        Dashboard1Component, CategoryComponent,ProductComponent, CompanyComponent, DiscountComponent, ArchiveProductComponent, NotificationClientComponent, PurchasesComponent, UsersComponent, PurchaseUserComponent  ],
     providers: [//TableService
         UploadServicesService,AuthGuard,ConfirmationService,ProductService,IdentityService,CompanyService,DiscountService,NotificationClientService
    ,PurchasesServiceProxy ]

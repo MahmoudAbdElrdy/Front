@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { ROUTES, ROUTESAr } from './menu-items';
+import { ROUTES, ROUTESAr, ROUTESArClient, ROUTESClient } from './menu-items';
 import { RouteInfo } from './sidebar.metadata';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -51,9 +51,19 @@ export class SidebarComponent implements OnInit {
        debugger;
        this.translate.addLangs(['en','ar']);
         var lang=localStorage.getItem('lang');
+        var Role=localStorage.getItem('role');
       //  lang=='ar';
-       
-      
+       if(Role=="Client"){
+        if(lang=='ar'){
+            this.translate.setDefaultLang('ar');
+            this.sidebarnavItems = ROUTESArClient.filter(sidebarnavItem => sidebarnavItem);
+        }
+          else{
+            this.translate.setDefaultLang('en');
+            this.sidebarnavItems = ROUTESClient.filter(sidebarnavItem => sidebarnavItem);
+                }
+       }
+      else{
         if(lang=='ar'){
             this.translate.setDefaultLang('ar');
             this.sidebarnavItems = ROUTESAr.filter(sidebarnavItem => sidebarnavItem);
@@ -63,6 +73,8 @@ export class SidebarComponent implements OnInit {
             this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
                 }
          
+      }
+      
            
         }
         

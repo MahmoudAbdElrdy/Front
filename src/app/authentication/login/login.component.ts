@@ -63,9 +63,9 @@ export class LoginComponent implements OnInit {
     
     let Role = decodedJwtData.role;
     
-   
+   let Id=this.Model.Id;
  
-    if(Role!="Admin"){
+    if(Role==null){
 
       this.messageService.add({severity:'error', summary:' ',  key: 'myToast', detail:' ليس لديك صلاحياته للدخول للوحة التحكم'});
     
@@ -75,6 +75,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("direction",'rtl')
         localStorage.setItem("token","True");
         localStorage.setItem('isLoggedin', 'true');
+        localStorage.setItem('role',Role);
+        localStorage.setItem('Id',Id);
         localStorage.setItem("UserName",this.UserName);
         this.router.navigate(['/Home'])
       }

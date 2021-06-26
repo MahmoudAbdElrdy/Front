@@ -9,7 +9,9 @@ import { Dashboard1Component } from './dashboard1/dashboard1.component';
 import { NotificationClientComponent } from './notification-client/notification-client.component';
 import { ArchiveProductComponent } from './Product/archive-product/archive-product.component';
 import { ProductComponent } from './Product/Product.component';
+import { PurchaseUserComponent } from './purchase-user/purchase-user.component';
 import { PurchasesComponent } from './purchases/purchases.component';
+import { UsersComponent } from './users/users.component';
 
 
 export const DashboardRoutes: Routes = [
@@ -116,6 +118,30 @@ export const DashboardRoutes: Routes = [
                     urls: [
                         { title: 'Purchases', url: '/Purchases' },
                         { title: 'Purchases' }
+                    ]
+                }
+            },
+            {
+                path: 'Users',
+                canActivate:[AuthGuard],
+                component: UsersComponent,
+                data: {
+                    title: 'Users',
+                    urls: [
+                        { title: 'Users', url: '/Users' },
+                        { title: 'Users' }
+                    ]
+                }
+            },
+            {
+                path: 'Sales',
+                canActivate:[AuthGuard],
+                component: PurchaseUserComponent,
+                data: {
+                    title: 'Purchase User',
+                    urls: [
+                        { title: 'Purchase User', url: '/Sales' },
+                        { title: 'Users' }
                     ]
                 }
             }
